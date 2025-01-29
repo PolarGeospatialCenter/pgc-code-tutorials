@@ -1,2 +1,3 @@
 # pgc-code-tutorials
-Tutorials for using PGC data, tools, and workflows
+
+This repo includes tutorials for using PGC data and tools in geospatial workflows. 
