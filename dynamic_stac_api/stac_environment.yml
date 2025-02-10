@@ -1,0 +1,9 @@
+name: pgc-stac--environment
+
+dependencies:
+  - pystac-client
+  - ipyleaflet
+  - stackstac
+  - xarray
+  - geopandas
+  - pandas
