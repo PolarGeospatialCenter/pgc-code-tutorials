@@ -1,5 +1,6 @@
 name: pgc-stac--environment
-
+channels:
+  - conda-forge
 dependencies:
   - pystac-client
   - ipyleaflet
