@@ -1,4 +1,4 @@
-name: pgc-stac--environment
+name: pgc-stac-environment
 channels:
   - conda-forge
 dependencies:
