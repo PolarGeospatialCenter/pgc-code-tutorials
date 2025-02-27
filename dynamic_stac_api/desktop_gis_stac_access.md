@@ -4,7 +4,7 @@ PGC publishes its Digital Elevation Models (DEMs) as an interactive STAC API. Th
 The STAC API url is: `https://stac.pgc.umn.edu/api/v1/`
 
 ## ArcGIS Pro
-ESRI provides [instructions for using STAC endpoints within ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/introduction-to-stac.htm). We will be demonstrating how to create a connection to the PGC STAC, query the API, and add data to your project. One note: this functionality requires ArcGIS Pro version 3.2 or higher. Sine this is a new feature in ArcGIS Pro, there may be unexpected errors or limited functionality compared to other tools. 
+ESRI provides [instructions for using STAC endpoints within ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/introduction-to-stac.htm). We will be demonstrating how to create a connection to the PGC STAC, query the API, and add data to your project. One note: this functionality requires ArcGIS Pro version 3.2 or higher. Since this is a new feature in ArcGIS Pro, there may be unexpected errors or limited functionality compared to other tools. 
 
 1. In the ribbon menu, click Insert, then Connections, then STAC Connections. Select New STAC Connection.
 2. The Create STAC Connection panel opens. Name the Connection something like PGC DEM STAC, and in the Connection field use the URL: https://stac.pgc.umn.edu/api/v1/
@@ -15,7 +15,7 @@ Click View Results to see the results of your search, and from the Results, clic
 
 
 ## QGIS
-The developers of the STAC Spec provide detailed tutorials for [installing the QGIS STAC API Browser Plugin](https://stacspec.org/en/tutorials/1-install-stac-api-browser-qgis-plugin/) and [using the plugin](https://stacspec.org/en/tutorials/2-intro-to-stac-api-browser-qgis-plugin/). We will give a brief overview here for loading the PGC STAC with the tool.
+The developers of the STAC Spec provide detailed tutorials for [installing the QGIS STAC API Browser Plugin](https://stacspec.org/en/tutorials/1-install-stac-api-browser-qgis-plugin/) and [using the plugin](https://stacspec.org/en/tutorials/2-intro-to-stac-api-browser-qgis-plugin/). We will give a brief overview here for loading data from the PGC STAC with the plugin.
 
 1. Install the STAC API Browser in QGIS: from the Plugins menu, search for and select the STAC API Browser, then click `Install Plugin`. 
 
