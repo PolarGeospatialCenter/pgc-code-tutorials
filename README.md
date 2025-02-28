@@ -11,7 +11,7 @@ We use the dynamic STAC API to enable queryable access to PGC data products via 
 
 #### PGC Tutorials
 - [Python Jupyter Notebook Workflow Tutorial](./dynamic_stac_api/web_files/stac_api_demo_workflow.html)
-- [ArcGIS Pro and QGIS Desktop Tutorials](./dynamic_stac_api/web_files/desktop_gis_stac_access.html.html)
+- [ArcGIS Pro and QGIS Desktop Tutorials](./dynamic_stac_api/web_files/desktop_gis_stac_access.html)
 
 ### The Digital Elevation Model (DEM) data
 PGC produces DEMs from high resolution satellite imagery and makes them publicly available for the polar regions through the [ArcticDEM](https://www.pgc.umn.edu/data/arcticdem/) and [Reference Elevation Model of Antarctica (REMA)](https://www.pgc.umn.edu/data/rema/) products, as well as a subset of the [EarthDEM](https://www.pgc.umn.edu/data/earthdem/) data for the area around the Great Lakes region that is publicly available. These are continent-scale, high resolution (2m), repeat coverage elevation models published as time-stamped DEM Strips and (mostly) seamless Mosaics. You can find out more about [this elevation data on our website](https://www.pgc.umn.edu/data/elevation/).
