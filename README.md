@@ -7,7 +7,7 @@ This repo includes tutorials for using [Polar Geospatial Center](https://www.pgc
 STAC - [Spatio Temporal Asset Catalog](https://stacspec.org/en) is a standard for organizing geospatial data for convenient access. Essentially, it is a set of GeoJSON-formatted metadata describing location and time for geospatial information, with links to the actual data, so tools can query by spatial and temporal filters and retrieve just the data necessary for your project. The [STAC spec website includes useful tutorials](https://stacspec.org/en/tutorials/) for getting familiar with using these data tools.
 
 ### Programmatic access to public PGC data
-We use the dynamic STAC API to enable queryable access to PGC data products via python or desktop GIS applications. The tutorials in the `dynamic_stac_api` folder in this repo demonstrate basic functionality for interacting with the STAC API using built-in tools for [ArcGIS and QGIS desktop software](./dynamic_stac_api/desktop_gis_stac_access.md) and with a [python jupyter notebook](./dynamic_stac_api/stac_api_demo_workflow.ipynb). 
+We use the dynamic STAC API to enable queryable access to PGC data products via python or desktop GIS applications. The tutorials in the `dynamic_stac_api` folder in this repo demonstrate basic functionality for interacting with the STAC API using built-in tools for [ArcGIS and QGIS desktop software](./dynamic_stac_api/desktop_gis_stac_access.md) and with a [python jupyter notebook](https://polargeospatialcenter.github.io/pgc-code-tutorials/dynamic_stac_api/web_files/stac_api_demo_workflow.html). 
 
 To jump in directly, the dynamic STAC API link is: [https://stac.pgc.umn.edu/api/v1/](https://stac.pgc.umn.edu/api/v1/)
 
