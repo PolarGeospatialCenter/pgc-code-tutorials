@@ -8,7 +8,7 @@ ESRI provides [instructions for using STAC endpoints within ArcGIS Pro](https://
 
 1. In the ribbon menu, click Insert, then Connections, then STAC Connections. Select New STAC Connection.
 
-    <img src="./img/arcpro_new_stac_connection.png" width="70%" height="70%">
+    <img src="./img/arcpro_new_stac_connection.png" width="80%" height="80%">
 
 2. The Create STAC Connection panel opens. Name the Connection something like PGC DEM STAC, and in the Connection field use the URL: https://stac.pgc.umn.edu/api/v1/
 
