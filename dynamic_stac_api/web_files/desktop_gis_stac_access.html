@@ -23,16 +23,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../desktop_gis_stac_access_files/libs/clipboard/clipboard.min.js"></script>
-<script src="../desktop_gis_stac_access_files/libs/quarto-html/quarto.js"></script>
-<script src="../desktop_gis_stac_access_files/libs/quarto-html/popper.min.js"></script>
-<script src="../desktop_gis_stac_access_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../desktop_gis_stac_access_files/libs/quarto-html/anchor.min.js"></script>
-<link href="../desktop_gis_stac_access_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../desktop_gis_stac_access_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../desktop_gis_stac_access_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="../desktop_gis_stac_access_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../desktop_gis_stac_access_files/libs/bootstrap/bootstrap-8a79a254b8e706d3c925cde0a310d4f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="desktop_gis_stac_access_files/libs/clipboard/clipboard.min.js"></script>
+<script src="desktop_gis_stac_access_files/libs/quarto-html/quarto.js"></script>
+<script src="desktop_gis_stac_access_files/libs/quarto-html/popper.min.js"></script>
+<script src="desktop_gis_stac_access_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="desktop_gis_stac_access_files/libs/quarto-html/anchor.min.js"></script>
+<link href="desktop_gis_stac_access_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="desktop_gis_stac_access_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="desktop_gis_stac_access_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="desktop_gis_stac_access_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="desktop_gis_stac_access_files/libs/bootstrap/bootstrap-8a79a254b8e706d3c925cde0a310d4f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -54,58 +54,38 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="arcgis-pro">ArcGIS Pro</h2>
 <p>ESRI provides <a href="https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/introduction-to-stac.htm">instructions for using STAC endpoints within ArcGIS Pro</a>, which we recommend following for initial setup. We will be demonstrating how to create a connection to the PGC STAC, query the API, and add data to your project. One note: this functionality requires ArcGIS Pro version 3.2 or higher. Since this is a new feature in ArcGIS Pro, there may be unexpected errors or limited functionality compared to other tools.</p>
 <ol type="1">
-<li>In the ribbon menu, click Insert, then Connections, then STAC Connections. Select New STAC Connection.</li>
+<li><p>In the ribbon menu, click Insert, then Connections, then STAC Connections. Select New STAC Connection.</p>
+<p><img src="./img/arcpro_new_stac_connection.png" width="70%" height="70%"></p></li>
+<li><p>The Create STAC Connection panel opens. Name the Connection something like PGC DEM STAC, and in the Connection field use the URL: https://stac.pgc.umn.edu/api/v1/</p>
+<p><img src="./img/arcpro_create_stac_connection.png" width="70%" height="70%"></p></li>
+<li><p>In the Catalog Pane, click the triangle beside STACs. Your new STAC API connection should be listed. Right-click the connection and click Explore STAC.</p>
+<p><img src="./img/arcpro_explore_stac.png" width="70%" height="70%"></p></li>
+<li><p>In the Explore STAC pane, you can select and query the available collections by a variety of parameters. NOTE: the DEM Mosaics will not have a valid Date for querying because they are built from Strip DEMs with different acquisition times.</p>
+<p><img src="./img/arcpro_query_options.png" width="70%" height="70%"></p></li>
+<li><p>Click View Results to see the results of your search, and from the Results you can view the footprint in the map to preview the spatial extent of the item and then click the <code>Add Data</code> icon to add items onto the map. Currently, preview images do not load in the ArcPro STAC viewer.</p>
+<p><img src="./img/arcpro_results_footprint.png" width="80%&quot;" height="80%"></p></li>
+<li><p>Once added to your map document, you might have to update the symbology to render the DEMs as expected, such as using the <code>Shaded relief</code> symbology option or applying a Min/Max or Clip stretch to the DEM symbology layer.</p>
+<p><img src="./img/arcpro_dem_symbology.png" width="80%" height="80%"></p></li>
 </ol>
-<p><img src="../img/arcpro_new_stac_connection.png" width="70%" height="70%"></p>
-<ol start="2" type="1">
-<li>The Create STAC Connection panel opens. Name the Connection something like PGC DEM STAC, and in the Connection field use the URL: https://stac.pgc.umn.edu/api/v1/</li>
-</ol>
-<p><img src="../img/arcpro_create_stac_connection.png" width="70%" height="70%"></p>
-<ol start="3" type="1">
-<li>In the Catalog Pane, click the triangle beside STACs. Your new STAC API connection should be listed. Right-click the connection and click Explore STAC.</li>
-</ol>
-<p><img src="../img/arcpro_explore_stac.png" width="70%" height="70%"></p>
-<ol start="4" type="1">
-<li>In the Explore STAC pane, you can select and query the available collections by a variety of parameters. NOTE: the DEM Mosaics will not have a valid Date for querying because they are built from Strip DEMs with different acquisition times.</li>
-</ol>
-<p><img src="../img/arcpro_query_options.png" width="70%" height="70%"></p>
-<ol start="5" type="1">
-<li>Click View Results to see the results of your search, and from the Results you can view the footprint in the map to preview the spatial extent of the item and then click the <code>Add Data</code> icon to add items onto the map. Currently, preview images do not load in the ArcPro STAC viewer.</li>
-</ol>
-<p><img src="../img/arcpro_results_footprint.png" width="100%&quot;" height="100%"></p>
-<ol start="6" type="1">
-<li>Once added to your map document, you might have to update the symbology to render the DEMs as expected, such as using the <code>Shaded relief</code> symbology option or applying a Min/Max or Clip stretch to the DEM symbology layer.</li>
-</ol>
-<p><img src="../img/arcpro_dem_symbology.png" width="100%" height="100%"></p>
 </section>
 <section id="qgis" class="level2">
 <h2 class="anchored" data-anchor-id="qgis">QGIS</h2>
 <p>The developers of the STAC Spec provide detailed tutorials for <a href="https://stacspec.org/en/tutorials/1-install-stac-api-browser-qgis-plugin/">installing the QGIS STAC API Browser Plugin</a> and <a href="https://stacspec.org/en/tutorials/2-intro-to-stac-api-browser-qgis-plugin/">using the plugin</a>. We will give a brief overview here for loading data from the PGC STAC with the plugin.</p>
 <ol type="1">
-<li>Install the STAC API Browser in QGIS: from the Plugins menu, click on “Manage and Install Plugins..”</li>
-</ol>
-<p><img src="../img/qgis_plugins_menu.png" width="70%" height="70%"></p>
-<ol start="2" type="1">
-<li>Search for and select the STAC API Browser, then click <code>Install Plugin</code>.</li>
-</ol>
-<p><img src="../img/qgis_install_plugin.png" width="70%" height="70%"></p>
-<ol start="3" type="1">
-<li>Launch the plugin by selecting it from the Plugins menu or click on the STAC Browser icon in the toolbar.</li>
-</ol>
-<p><img src="../img/qgis_launch_plugin.png" width="70%" height="70%"></p>
-<ol start="4" type="1">
+<li><p>Install the STAC API Browser in QGIS: from the Plugins menu, click on “Manage and Install Plugins..”</p>
+<p><img src="./img/qgis_plugins_menu.png" width="70%" height="70%"></p></li>
+<li><p>Search for and select the STAC API Browser, then click <code>Install Plugin</code>.</p>
+<p><img src="./img/qgis_install_plugin.png" width="70%" height="70%"></p></li>
+<li><p>Launch the plugin by selecting it from the Plugins menu or click on the STAC Browser icon in the toolbar.</p>
+<p><img src="./img/qgis_launch_plugin.png" width="70%" height="70%"></p></li>
 <li><p>When the browser opens, click New under the Connections field.</p></li>
-<li><p>Name the connection something like PGC STAC, and in the URL field use: https://stac.pgc.umn.edu/api/v1/ . Leave the other fields as they are. If you wish, you can click Test connection to confirm the connection works.</p></li>
+<li><p>Name the connection something like PGC STAC, and in the URL field use: https://stac.pgc.umn.edu/api/v1/ . Leave the other fields as they are. If you wish, you can click Test connection to confirm the connection works.</p>
+<p><img src="./img/qgis_add_connection.png" width="70%" height="70%"></p></li>
+<li><p>Once you have added the PGC dem STAC connection, click on the <code>Fetch collections</code> button to browse the various collections within PGC’s STAC Catalog. Select on use the query options to filter by date or extent. Click Search to view results.</p>
+<p><img src="./img/qgis_iceland_filter.png" width="100%" height="100%"></p></li>
+<li><p>On the Results page, click View assets to see all the files associated with an item. For Strip DEMs, each item will have 8 associated layers, including the 2m DEM, a 10m hillshade for visualization/preview, and a datamask to remove bad data from the DEM. Visit <a href="https://www.pgc.umn.edu/data/elevation/">our website</a> for a full description of the layers and metadata.</p>
+<p><img src="./img/qgis_preview_add_assets.png" width="100%" height="100%"></p></li>
 </ol>
-<p><img src="../img/qgis_add_connection.png" width="70%" height="70%"></p>
-<ol start="6" type="1">
-<li>Once you have added the PGC dem STAC connection, click on the <code>Fetch collections</code> button to browse the various collections within PGC’s STAC Catalog. Select on use the query options to filter by date or extent. Click Search to view results.</li>
-</ol>
-<p><img src="../img/qgis_iceland_filter.png" width="100%" height="100%"></p>
-<ol start="7" type="1">
-<li>On the Results page, click View assets to see all the files associated with an item. For Strip DEMs, each item will have 8 associated layers, including the 2m DEM, a 10m hillshade for visualization/preview, and a datamask to remove bad data from the DEM. Visit <a href="https://www.pgc.umn.edu/data/elevation/">our website</a> for a full description of the layers and metadata.</li>
-</ol>
-<p><img src="../img/qgis_preview_add_assets.png" width="100%" height="100%"></p>
 </section>
 </section>
 
