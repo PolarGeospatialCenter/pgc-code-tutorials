@@ -3,9 +3,9 @@
 
 @import "{{ site.theme }}";
 
-header{
-  width:20%
-}
+//header{
+//  width:20%
+//}
 section {
   width:75%;
 }
@@ -14,8 +14,8 @@ section {
   width:100%;
 }
 
-@media print, screen and (max-width: 960px) {
-  header{
-    padding:0px;
-  }
-}
+//@media print, screen and (max-width: 960px) {
+//  header{
+//    padding:0px;
+//  }
+//}
