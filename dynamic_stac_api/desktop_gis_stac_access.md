@@ -24,11 +24,11 @@ ESRI provides [instructions for using STAC endpoints within ArcGIS Pro](https://
 
 5. Click View Results to see the results of your search, and from the Results you can view the footprint in the map to preview the spatial extent of the item and then click the `Add Data` icon to add items onto the map. Currently, preview images do not load in the ArcPro STAC viewer.
 
-    <img src="./img/arcpro_results_footprint.png" width="80%" height="80%">
+    <img src="./img/arcpro_results_footprint.png">
 
 6. Once added to your map document, you might have to update the symbology to render the DEMs as expected, such as using the `Shaded relief` symbology option or applying a Min/Max or Clip stretch to the DEM symbology layer. 
 
-    <img src="./img/arcpro_dem_symbology.png" width="80%" height="80%">
+    <img src="./img/arcpro_dem_symbology.png">
 
 ## QGIS
 The developers of the STAC Spec provide detailed tutorials for [installing the QGIS STAC API Browser Plugin](https://stacspec.org/en/tutorials/1-install-stac-api-browser-qgis-plugin/) and [using the plugin](https://stacspec.org/en/tutorials/2-intro-to-stac-api-browser-qgis-plugin/). We will give a brief overview here for loading data from the PGC STAC with the plugin.
