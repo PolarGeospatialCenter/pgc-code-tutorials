@@ -7,16 +7,16 @@
 //  width:20%
 //}
 section {
-  width:72%;
+  width:800px;
   padding-bottom:50px;
   scroll-padding-right:50px;
 }
 
 .wrapper {
-  width:100%;
+  width:75%;
 }
 
-@media print, screen and (max-width: 1240px) {
+@media print, screen and (max-width: 1380px) {
 
   div.wrapper {
     width:auto;
