@@ -10,17 +10,19 @@ section {
   width:800px;
   padding-bottom:50px;
   scroll-padding-right:50px;
+  padding-left:300px;
 }
 
 .wrapper {
   width:75%;
 }
 
-@media print, screen and (max-width: 1380px) {
+@media print, screen and (max-width: 1560px) {
 
   div.wrapper {
     width:auto;
     margin:0;
+    padding-right: 50px;
   }
 
   header, section, footer {
