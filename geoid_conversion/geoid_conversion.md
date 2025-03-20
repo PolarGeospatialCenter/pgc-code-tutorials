@@ -3,9 +3,14 @@
 Are you wondering why the elevation value for your area of interest along an ocean coastline is -50 meters? This tutorial will talk about the difference between ellispoidal and geoidal vertical reference systems for Digital Elevation Models (DEMs) and how to convert PGC DEMs elevation values between them.
 
 ## What is an ellipsoid and a geoid?
+
 While the Earth is spherical, its surface is not a perfect sphere and is in fact a rather complex, irregular surface influenced not just by landforms but also by gravity and rotation. There is a whole field of science dedicated to studying and measuring this: [geodesy](https://en.wikipedia.org/wiki/Geodesy). Thus, data users must be cautious about the reference surface model of their data sources and the desired output. Broadly, there are two types of reference surfaces for elevation measurements: ellipsoid and geoid. 
  - [Ellipsoid](https://en.wikipedia.org/wiki/Earth_ellipsoid): a simplified mathematical model of the earth's surface, a smooth but deformed sphere accounting for how the earth's rotation impacts how its mass is distributed. The [WGS84 datum](https://en.wikipedia.org/wiki/World_Geodetic_System) uses an ellipsoid surface.
  - [Geoid](https://en.wikipedia.org/wiki/Geoid): a complex surface based on gravity measurements that accounts for the irregular shape of the planet's surface, often published in reference to an ellipsoid. Due to the complexity of the surface, there are many smaller geoid models specific to local or national boundaries. Orthometric height values will use a geoid vertical reference and can be thought of as height above Mean Sea Level.
+
+The [Intergovernmental Committee on Surveying and Mapping](https://www.icsm.gov.au/education/fundamentals-mapping/datums) in Australia put together a handy illustration denoting the differences in these ways of measuring the Earth's surface and how they can vary depending on location and terrain features. When performing a vertical reference transformation, we use gridded rasters that measure the difference between the ellipsoid and the geoid and add/subtract from the reference DEM surface to represent terrain elevation relative to the geoid. 
+
+<img src="./img/cross_section_0_icsm_au.jpg" width="90%" height="90%">
 
 ## Converting PGC DEMs to a different vertical reference system
 
@@ -65,6 +70,37 @@ In QGIS, using an identify tool on the DEMs will return different elevation valu
 <img src="./img/file_size.png">
 
 <img src="./img/qgis_dem_validation.png" width="90%" height="90%">
+
+## Potential errors and how to check for them
+
+When performing this vertical transformation with GDAL, the software needs to access the grid file to compute the elevation values. If the elevation values to not change after running the `gdalwarp` command, this might be the cause of the issue, since it does not always return an error indicating that it could not find the relevant grid file. Setting the `PROJ_NETWORK` environment variable should alleviate the problem. You can use the `gdallocationinfo` command to spot check a coordinate within the bounds of the input and output rasters to check if the transformation has been applied as expected. Here, we demonstrate how to check the value of a pixel from a COG on AWS and then check the value after applying the transformation to an output VRT.
+
+``` 
+# check ellipsoid elevation of DEM strip on aws
+gdallocationinfo -geoloc /vsicurl/https://pgc-opendata-dems.s3.us-west-2.amazonaws.com/rema/strips/s2s041/2m/s77e166/SETSM_s2s041_WV01_20180915_1020010079996900_1020010078866100_2m_lsf_seg1_dem.tif 324249.000 -1380735.000
+Report:
+  Location: (6616P,7105L)
+  Band 1:
+    Value: -53.859375
+    
+# transform vertical reference to .vrt
+gdalwarp -of VRT -t_srs EPSG:3031+3855 /vsicurl/https://pgc-opendata-dems.s3.us-west-2.amazonaws.com/rema/strips/s2s041/2m/s77e166/SETSM_s2s041_WV01_20180915_1020010079996900_1020010078866100_2m_lsf_seg1_dem.tif dem_orthometric.vrt
+
+# check geoidal elevation of transformed DEM
+gdallocationinfo -geoloc dem_orthometric.vrt 324249.000 -1380735.000
+Report:
+  Location: (6616P,7105L)
+  Band 1:
+    Value: 1.05549550056458
+
+# If these values are the same, GDAL likely could not find the required geoid grid
+# You can try setting the PROJ_NETWORK variable to enable GDAL to pull the necessary grid from online
+PROJ_NETWORK=ON gdallocationinfo -geoloc dem_orthometric.vrt 324249.000 -1380735.000
+Report:
+  Location: (6616P,7105L)
+  Band 1:
+    Value: 1.05549550056458
+```
 
 ## Additional Resources
 - [Explanation of Datums](https://www.icsm.gov.au/education/fundamentals-mapping/datums) by the Intergovernmental Committee on Surveying and Mapping
