@@ -46,6 +46,10 @@ For a web-hosted REMA Strip DEM, from COG to VRT. This approach leverages the AW
 
 ```gdalwarp -of VRT -t_srs EPSG:3031+3855 /vsicurl/https://pgc-opendata-dems.s3.us-west-2.amazonaws.com/rema/strips/s2s041/2m/s77e166/SETSM_s2s041_WV01_20180915_1020010079996900_1020010078866100_2m_lsf_seg1_dem.tif rema_strip_orthometric.vrt```
 
+Transforming the other way, from orthometric (geoid) to ellipsoid, you can set the `-s_srs` flag to specify that the source DEM has the geoidal vertical reference transformation applied and that the output should not: 
+
+``` gdalwarp -s_srs EPSG:3031+3855 -t_srs EPSG:3031 rema_orthometric.tif rema_ellipsoidal.tif ```
+
 ### Verifying conversion outputs
 Users can verify the outputs with GDAL tools or in a desktop GIS application. `gdalinfo` will return details about the spatial projection, including any vertical reference details. Here we see the `EGM2008 geoid` applied after the `gdalwarp` transformation:
 ```
