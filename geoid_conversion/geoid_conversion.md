@@ -36,7 +36,7 @@ Optional Arguments
  - Target Output File Type `-of`: You can also specify the output file type with the `-of`. GDAL will guess the output format from the file extension in the `dstfile` if none is specified. A useful output type is the Virtual Raster `.vrt`, which will not write the output to a new file, but will act as a pointer to the source file transforming the data on the fly when accessed. This is particularly handy to avoid essentially duplicating files when performing spatial transformations or merging raster files together.
  - Additional Creation Options `-co`: GDAL also provides additional creation options for each driver, including compression and tiling. Details can be found here for [GeoTIFF](https://gdal.org/en/stable/drivers/raster/gtiff.html#creation-options) and [COGs](https://gdal.org/en/stable/drivers/raster/cog.html#creation-options).   
 
-#### Examples
+## Example Scripts
 
 For a local ArcticDEM mosaic tile, from .tif to .tif:
 
@@ -46,7 +46,11 @@ For a web-hosted REMA Strip DEM, from COG to VRT. This approach leverages the AW
 
 ```gdalwarp -of VRT -t_srs EPSG:3031+3855 /vsicurl/https://pgc-opendata-dems.s3.us-west-2.amazonaws.com/rema/strips/s2s041/2m/s77e166/SETSM_s2s041_WV01_20180915_1020010079996900_1020010078866100_2m_lsf_seg1_dem.tif rema_strip_orthometric.vrt```
 
-### Verifying conversion outputs
+Transforming the other way, from orthometric (geoid) to ellipsoid, you can set the `-s_srs` flag to specify that the source DEM has the geoidal vertical reference transformation applied and that the output should not: 
+
+``` gdalwarp -s_srs EPSG:3031+3855 -t_srs EPSG:3031 rema_orthometric.tif rema_ellipsoidal.tif ```
+
+## Verifying conversion outputs
 Users can verify the outputs with GDAL tools or in a desktop GIS application. `gdalinfo` will return details about the spatial projection, including any vertical reference details. Here we see the `EGM2008 geoid` applied after the `gdalwarp` transformation:
 ```
 gdalinfo dem_orthometric.tif
