@@ -1,6 +1,9 @@
 # pgc-code-tutorials
 
-This repo includes tutorials for using [Polar Geospatial Center](https://www.pgc.umn.edu) (PGC) data and tools in geospatial workflows.
+This repo includes tutorials for using [Polar Geospatial Center](https://www.pgc.umn.edu) (PGC) data and tools in geospatial workflows. 
+
+### Contact
+Please reach out to pgc@umn.edu with any questions or Jesse Bakker bakke557@umn.edu with tutorial feedback. 
 
 ## PGC Dynamic STAC API
 ### What is STAC?
